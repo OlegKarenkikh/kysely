@@ -79,11 +79,6 @@ export interface Tedious {
   connectionFactory: () => TediousConnection | Promise<TediousConnection>
   ISOLATION_LEVEL: TediousIsolationLevel
   Request: TediousRequestClass
-  // TODO: remove in v0.29.0
-  /**
-   * @deprecated use {@link MssqlDialectConfig.resetConnectionsOnRelease} instead.
-   */
-  resetConnectionOnRelease?: KyselyTypeError<'deprecated: use `MssqlDialectConfig.resetConnectionsOnRelease` instead'>
   TYPES: TediousTypes
 }
 

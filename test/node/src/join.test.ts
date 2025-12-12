@@ -832,7 +832,8 @@ for (const dialect of DIALECTS) {
                 .as('p'),
             )
             .select(['first_name', 'p.name'])
-            .orderBy(['first_name', 'p.name'])
+            .orderBy('first_name')
+            .orderBy('p.name')
 
           testSql(query, dialect, {
             postgres: {

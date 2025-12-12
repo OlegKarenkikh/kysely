@@ -106,10 +106,7 @@ export class MssqlDriver implements Driver {
   }
 
   async releaseConnection(connection: MssqlConnection): Promise<void> {
-    if (
-      this.#config.resetConnectionsOnRelease ||
-      this.#config.tedious.resetConnectionOnRelease
-    ) {
+    if (this.#config.resetConnectionsOnRelease) {
       await connection[PRIVATE_RESET_METHOD]()
     }
 

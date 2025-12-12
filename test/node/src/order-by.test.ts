@@ -100,7 +100,8 @@ for (const dialect of DIALECTS) {
       const query = ctx.db
         .selectFrom('person')
         .selectAll()
-        .orderBy(['first_name', 'last_name desc'])
+        .orderBy('first_name')
+        .orderBy('last_name desc')
 
       testSql(query, dialect, {
         postgres: {
@@ -135,7 +136,8 @@ for (const dialect of DIALECTS) {
         ])
         .orderBy('fn')
         .orderBy('mn asc')
-        .orderBy(['ln desc', 'g'])
+        .orderBy('ln desc')
+        .orderBy('g')
 
       testSql(query, dialect, {
         postgres: {
@@ -189,10 +191,10 @@ for (const dialect of DIALECTS) {
         .selectAll()
         .orderBy(sql`coalesce(${sql.ref('first_name')}, ${sql.lit('foo')}) asc`)
         .orderBy((eb) => eb.fn.coalesce('last_name', sql.lit('foo')))
-        .orderBy([
-          sql`coalesce(${sql.ref('gender')}, ${sql.lit('foo')})`,
+        .orderBy(sql`coalesce(${sql.ref('gender')}, ${sql.lit('foo')})`)
+        .orderBy(
           (eb) => sql`${eb.fn.coalesce('middle_name', sql.lit('foo'))} desc`,
-        ])
+        )
 
       testSql(query, dialect, {
         postgres: {
