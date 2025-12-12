@@ -322,14 +322,6 @@ export class DefaultQueryCompiler
 
     this.append(node.replace ? 'replace' : 'insert')
 
-    // TODO: remove in 0.29.
-    if (node.ignore) {
-      logOnce(
-        '`InsertQueryNode.ignore` is deprecated. Use `InsertQueryNode.orAction` instead.',
-      )
-      this.append(' ignore')
-    }
-
     if (node.orAction) {
       this.append(' ')
       this.visitNode(node.orAction)
