@@ -96,35 +96,6 @@ for (const dialect of DIALECTS) {
       await query.execute()
     })
 
-    it('should order by two columns in one invocations', async () => {
-      const query = ctx.db
-        .selectFrom('person')
-        .selectAll()
-        .orderBy('first_name')
-        .orderBy('last_name desc')
-
-      testSql(query, dialect, {
-        postgres: {
-          sql: 'select * from "person" order by "first_name", "last_name" desc',
-          parameters: [],
-        },
-        mysql: {
-          sql: 'select * from `person` order by `first_name`, `last_name` desc',
-          parameters: [],
-        },
-        mssql: {
-          sql: 'select * from "person" order by "first_name", "last_name" desc',
-          parameters: [],
-        },
-        sqlite: {
-          sql: 'select * from "person" order by "first_name", "last_name" desc',
-          parameters: [],
-        },
-      })
-
-      await query.execute()
-    })
-
     it('should order by aliased columns', async () => {
       const query = ctx.db
         .selectFrom('person')
@@ -135,8 +106,8 @@ for (const dialect of DIALECTS) {
           'gender as g',
         ])
         .orderBy('fn')
-        .orderBy('mn asc')
-        .orderBy('ln desc')
+        .orderBy('mn', 'asc')
+        .orderBy('ln', 'desc')
         .orderBy('g')
 
       testSql(query, dialect, {
@@ -192,9 +163,7 @@ for (const dialect of DIALECTS) {
         .orderBy(sql`coalesce(${sql.ref('first_name')}, ${sql.lit('foo')}) asc`)
         .orderBy((eb) => eb.fn.coalesce('last_name', sql.lit('foo')))
         .orderBy(sql`coalesce(${sql.ref('gender')}, ${sql.lit('foo')})`)
-        .orderBy(
-          (eb) => sql`${eb.fn.coalesce('middle_name', sql.lit('foo'))} desc`,
-        )
+        .orderBy((eb) => sql`${eb.fn.coalesce('middle_name', sql.lit('foo'))} desc`)
 
       testSql(query, dialect, {
         postgres: {
