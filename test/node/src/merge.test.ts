@@ -3,6 +3,7 @@ import { mergeAction } from '../../../helpers/postgres'
 import {
   DIALECTS,
   NOT_SUPPORTED,
+  POSTGRES_MERGE_RETURNING_SUPPORTED,
   TestContext,
   clearDatabase,
   destroyTest,
@@ -1015,7 +1016,11 @@ for (const dialect of DIALECTS.filter(
     })
 
     if (dialect === 'postgres') {
-      it('should perform a merge...using table simple on...when matched then delete returning id query', async () => {
+      it('should perform a merge...using table simple on...when matched then delete returning id query', async function () {
+        if (!POSTGRES_MERGE_RETURNING_SUPPORTED) {
+          this.skip()
+        }
+
         const expected = await ctx.db.selectFrom('pet').select('id').execute()
 
         const query = ctx.db
@@ -1034,13 +1039,16 @@ for (const dialect of DIALECTS.filter(
           mssql: NOT_SUPPORTED,
           sqlite: NOT_SUPPORTED,
         })
-
         const result = await query.execute()
 
         expect(result).to.eql(expected)
       })
 
-      it('should perform a merge...using table simple on...when matched then update set name returning {target}.name, {source}.first_name query', async () => {
+      it('should perform a merge...using table simple on...when matched then update set name returning {target}.name, {source}.first_name query', async function () {
+        if (!POSTGRES_MERGE_RETURNING_SUPPORTED) {
+          this.skip()
+        }
+
         const query = ctx.db
           .mergeInto('pet')
           .using('person', 'pet.owner_id', 'person.id')
@@ -1072,7 +1080,11 @@ for (const dialect of DIALECTS.filter(
         ])
       })
 
-      it('should perform a merge...using table simple on...when matched then delete returning * query', async () => {
+      it('should perform a merge...using table simple on...when matched then delete returning * query', async function () {
+        if (!POSTGRES_MERGE_RETURNING_SUPPORTED) {
+          this.skip()
+        }
+
         const expected = await ctx.db
           .selectFrom('pet')
           .innerJoin('person', 'pet.owner_id', 'person.id')
@@ -1101,7 +1113,11 @@ for (const dialect of DIALECTS.filter(
         expect(result).to.eql(expected)
       })
 
-      it('should perform a merge...using table simple on...when matched then delete returning {target}.* query', async () => {
+      it('should perform a merge...using table simple on...when matched then delete returning {target}.* query', async function () {
+        if (!POSTGRES_MERGE_RETURNING_SUPPORTED) {
+          this.skip()
+        }
+
         const expected = await ctx.db.selectFrom('pet').selectAll().execute()
 
         const query = ctx.db
@@ -1126,7 +1142,11 @@ for (const dialect of DIALECTS.filter(
         expect(result).to.eql(expected)
       })
 
-      it('should perform a merge...using table simple on...when matched then delete returning {source}.* query', async () => {
+      it('should perform a merge...using table simple on...when matched then delete returning {source}.* query', async function () {
+        if (!POSTGRES_MERGE_RETURNING_SUPPORTED) {
+          this.skip()
+        }
+
         const expected = await ctx.db
           .selectFrom('pet')
           .innerJoin('person', 'pet.owner_id', 'person.id')
@@ -1155,7 +1175,11 @@ for (const dialect of DIALECTS.filter(
         expect(result).to.eql(expected)
       })
 
-      it('should perform a merge...using table simple on...when matched then delete returning merge_action(), {target}.name', async () => {
+      it('should perform a merge...using table simple on...when matched then delete returning merge_action(), {target}.name', async function () {
+        if (!POSTGRES_MERGE_RETURNING_SUPPORTED) {
+          this.skip()
+        }
+
         await ctx.db.connection().execute(async (db) => {
           await ctx.db
             .insertInto('person')
