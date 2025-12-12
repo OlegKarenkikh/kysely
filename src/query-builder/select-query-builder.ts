@@ -1095,18 +1095,6 @@ export interface SelectQueryBuilder<DB, TB extends keyof DB, O>
 
   // TODO: remove in v0.29
   /**
-   * @deprecated It does ~2-2.5x more compile-time instantiations than multiple `orderBy(expr, modifiers?)` calls, and has broken autocompletion.
-   */
-  orderBy<
-    OE extends
-      | OrderByExpression<DB, TB, O>
-      | DirectedOrderByStringReference<DB, TB, O>,
-  >(
-    exprs: ReadonlyArray<OE>,
-  ): SelectQueryBuilder<DB, TB, O>
-
-  // TODO: remove in v0.29
-  /**
    * @deprecated Use orderBy(expr, direction) instead.
    */
   orderBy<OE extends DirectedOrderByStringReference<DB, TB, O>>(

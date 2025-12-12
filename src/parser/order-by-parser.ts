@@ -67,17 +67,7 @@ export function parseOrderBy(args: any[]): OrderByItemNode[] {
   }
 
   if (args.length === 1) {
-    const [orderBy] = args
-
-    if (Array.isArray(orderBy)) {
-      logOnce(
-        'orderBy(array) is deprecated, use multiple orderBy calls instead.',
-      )
-
-      return orderBy.map((item) => parseOrderByItem(item))
-    }
-
-    return [parseOrderByItem(orderBy)]
+    return [parseOrderByItem(args[0])]
   }
 
   throw new Error(
