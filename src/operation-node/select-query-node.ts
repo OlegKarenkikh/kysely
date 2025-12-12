@@ -59,10 +59,6 @@ type SelectQueryNodeFactory = Readonly<{
     select: SelectQueryNode,
     modifier: SelectModifierNode,
   ): Readonly<SelectQueryNode>
-  cloneWithOrderByItems(
-    node: SelectQueryNode,
-    items: ReadonlyArray<OrderByItemNode>,
-  ): Readonly<SelectQueryNode>
   cloneWithGroupByItems(
     selectNode: SelectQueryNode,
     items: ReadonlyArray<GroupByItemNode>,
@@ -144,13 +140,6 @@ export const SelectQueryNode: SelectQueryNodeFactory =
           : freeze([modifier]),
       })
     },
-
-    // TODO: remove in v0.29
-    /**
-     * @deprecated Use `QueryNode.cloneWithoutOrderBy` instead.
-     */
-    cloneWithOrderByItems: (node, items) =>
-      QueryNode.cloneWithOrderByItems(node, items),
 
     cloneWithGroupByItems(selectNode, items) {
       return freeze({
