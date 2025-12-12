@@ -1,0 +1,195 @@
+
+
+  mssql: select
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+    1) "before all" hook for "should select all columns"
+    2) "after all" hook for "should create a select query with top percent with ties"
+
+
+  0 passing (5m)
+  2 failing
+
+  1) mssql: select
+       "before all" hook for "should select all columns":
+     Error: Timeout of 300000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/app/test/node/dist/select.test.js)
+      at listOnTimeout (node:internal/timers:588:17)
+      at process.processTimers (node:internal/timers:523:7)
+
+  2) mssql: select
+       "after all" hook for "should create a select query with top percent with ties":
+     TypeError: Cannot read properties of undefined (reading 'db')
+      at destroyTest (test/node/dist/test-setup.js:133:28)
+      at Context.<anonymous> (test/node/dist/select.test.js:44:51)
+      at process.processImmediate (node:internal/timers:485:21)
+
+
+
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/select.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?

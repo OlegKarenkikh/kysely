@@ -186,7 +186,7 @@ export const DB_CONFIGS: PerDialect<KyselyConfig> = {
 
   mssql: {
     dialect: new MssqlDialect({
-      resetConnectionsOnRelease: false,
+      resetConnectionsOnRelease: true,
       tarn: {
         options: {
           max: POOL_SIZE,
@@ -199,8 +199,6 @@ export const DB_CONFIGS: PerDialect<KyselyConfig> = {
       tedious: {
         ...Tedious,
         connectionFactory: () => new Tedious.Connection(DIALECT_CONFIGS.mssql),
-        // @ts-expect-error making sure people see the deprecation warning
-        resetConnectionOnRelease: true,
       },
       validateConnections: false,
     }),
