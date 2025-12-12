@@ -49,12 +49,6 @@ export type DirectedOrderByStringReference<DB, TB extends keyof DB, O> = `${
 
 // TODO: remove in v0.29
 /**
- * @deprecated replaced with {@link OrderByModifiers}
- */
-export type OrderByDirectionExpression = OrderByDirection | Expression<any>
-
-// TODO: remove in v0.29
-/**
  * @deprecated use {@link OrderByExpression} instead.
  */
 export type UndirectedOrderByExpression<DB, TB extends keyof DB, O> =
@@ -128,12 +122,7 @@ function parseOrderByExpression(
 
 function parseOrderByWithModifiers(
   expr: OperationNode,
-  modifiers:
-    | string
-    | OrderByModifiersCallbackExpression
-    // TODO: remove in v0.29
-    | Expression<any>
-    | undefined,
+  modifiers: string | OrderByModifiersCallbackExpression | undefined,
 ): OrderByItemNode {
   if (typeof modifiers === 'string') {
     if (!isOrderByDirection(modifiers)) {
@@ -141,14 +130,6 @@ function parseOrderByWithModifiers(
     }
 
     return OrderByItemNode.create(expr, RawNode.createWithSql(modifiers))
-  }
-
-  if (isExpression(modifiers)) {
-    logOnce(
-      "`orderBy(..., expr)` is deprecated. Use `orderBy(..., 'asc')` or `orderBy(..., (ob) => ...)` instead.",
-    )
-
-    return OrderByItemNode.create(expr, modifiers.toOperationNode())
   }
 
   const node = OrderByItemNode.create(expr)

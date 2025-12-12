@@ -280,7 +280,6 @@ export type { InsertObject } from './parser/insert-values-parser.js'
 export type { UpdateObject } from './parser/update-set-parser.js'
 export type {
   OrderByExpression,
-  OrderByDirectionExpression,
   OrderByModifiers,
   OrderByDirection,
   OrderByModifiersCallbackExpression,

@@ -138,15 +138,6 @@ export class AggregateFunctionBuilder<DB, TB extends keyof DB, O = unknown>
     expr: OE,
   ): AggregateFunctionBuilder<DB, TB, O>
 
-  // TODO: remove in v0.29
-  /**
-   * @deprecated Use `orderBy(expr, (ob) => ...)` instead.
-   */
-  orderBy<OE extends OrderByExpression<DB, TB, {}>>(
-    expr: OE,
-    modifiers: Expression<any>,
-  ): AggregateFunctionBuilder<DB, TB, O>
-
   orderBy(...args: any[]): any {
     return new AggregateFunctionBuilder({
       ...this.#props,
@@ -205,15 +196,6 @@ export class AggregateFunctionBuilder<DB, TB extends keyof DB, O = unknown>
    */
   withinGroupOrderBy<OE extends DirectedOrderByStringReference<DB, TB, {}>>(
     expr: OE,
-  ): AggregateFunctionBuilder<DB, TB, O>
-
-  // TODO: remove in v0.29
-  /**
-   * @deprecated Use `withinGroupOrderBy(expr, (ob) => ...)` instead.
-   */
-  withinGroupOrderBy<OE extends OrderByExpression<DB, TB, {}>>(
-    expr: OE,
-    modifiers: Expression<any>,
   ): AggregateFunctionBuilder<DB, TB, O>
 
   withinGroupOrderBy(...args: any[]): any {

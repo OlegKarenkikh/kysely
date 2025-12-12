@@ -59,15 +59,6 @@ export class OverBuilder<DB, TB extends keyof DB>
     expr: OE,
   ): OverBuilder<DB, TB>
 
-  // TODO: remove in v0.29
-  /**
-   * @deprecated Use `orderBy(expr, (ob) => ...)` instead.
-   */
-  orderBy<OE extends OrderByExpression<DB, TB, {}>>(
-    expr: OE,
-    modifiers: Expression<any>,
-  ): OverBuilder<DB, TB>
-
   orderBy(...args: any[]): any {
     return new OverBuilder({
       overNode: OverNode.cloneWithOrderByItems(
