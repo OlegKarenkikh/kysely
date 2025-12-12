@@ -547,15 +547,7 @@ export class Kysely<DB>
    */
   executeQuery<R>(
     query: CompiledQuery<R> | Compilable<R>,
-    // TODO: remove this in the future. deprecated in  0.28.x
-    queryId?: QueryId,
   ): Promise<QueryResult<R>> {
-    if (queryId !== undefined) {
-      logOnce(
-        'Passing `queryId` in `db.executeQuery` is deprecated and will result in a compile-time error in the future.',
-      )
-    }
-
     const compiledQuery = isCompilable(query) ? query.compile() : query
 
     return this.getExecutor().executeQuery<R>(compiledQuery)
