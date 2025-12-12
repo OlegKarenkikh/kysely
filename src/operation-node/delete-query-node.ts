@@ -36,10 +36,6 @@ type DeleteQueryNodeFactory = Readonly<{
     fromItems: OperationNode[],
     withNode?: WithNode,
   ): Readonly<DeleteQueryNode>
-  cloneWithOrderByItems(
-    node: DeleteQueryNode,
-    items: ReadonlyArray<OrderByItemNode>,
-  ): Readonly<DeleteQueryNode>
   cloneWithoutOrderBy(node: DeleteQueryNode): Readonly<DeleteQueryNode>
   cloneWithLimit(
     deleteNode: DeleteQueryNode,
@@ -68,13 +64,6 @@ export const DeleteQueryNode: DeleteQueryNodeFactory =
         ...(withNode && { with: withNode }),
       })
     },
-
-    // TODO: remove in v0.29
-    /**
-     * @deprecated Use `QueryNode.cloneWithoutOrderBy` instead.
-     */
-    cloneWithOrderByItems: (node, items) =>
-      QueryNode.cloneWithOrderByItems(node, items),
 
     // TODO: remove in v0.29
     /**

@@ -1,5 +1,6 @@
 import * as chai from 'chai'
 import chaiAsPromised from 'chai-as-promised'
+import chaiSubset = require('chai-subset')
 import * as Cursor from 'pg-cursor'
 import { Pool, PoolConfig } from 'pg'
 import { createPool } from 'mysql2'
@@ -8,6 +9,7 @@ import * as Tarn from 'tarn'
 import * as Tedious from 'tedious'
 import { PoolOptions } from 'mysql2'
 
+chai.use(chaiSubset)
 chai.use(chaiAsPromised)
 
 import {
@@ -109,6 +111,9 @@ export const NOT_SUPPORTED = { sql: '', parameters: [] }
 
 export const PLUGINS: KyselyPlugin[] = []
 
+export const POSTGRES_MERGE_RETURNING_SUPPORTED =
+  process.env.POSTGRES_MERGE_RETURNING_SUPPORTED === '1'
+
 if (process.env.TEST_TRANSFORMER) {
   console.log('running tests with a transformer')
   // Add a noop transformer using a plugin to make sure that the
@@ -186,7 +191,7 @@ export const DB_CONFIGS: PerDialect<KyselyConfig> = {
 
   mssql: {
     dialect: new MssqlDialect({
-      resetConnectionsOnRelease: false,
+      resetConnectionsOnRelease: true,
       tarn: {
         options: {
           max: POOL_SIZE,
@@ -199,8 +204,6 @@ export const DB_CONFIGS: PerDialect<KyselyConfig> = {
       tedious: {
         ...Tedious,
         connectionFactory: () => new Tedious.Connection(DIALECT_CONFIGS.mssql),
-        // @ts-expect-error making sure people see the deprecation warning
-        resetConnectionOnRelease: true,
       },
       validateConnections: false,
     }),
@@ -215,6 +218,24 @@ export const DB_CONFIGS: PerDialect<KyselyConfig> = {
   },
 }
 
+let postgresCollationPrepared = false
+
+async function ensurePostgresCapabilities(
+  db: Kysely<Database>,
+  dialect: BuiltInDialect,
+): Promise<void> {
+  if (dialect !== 'postgres') {
+    return
+  }
+
+  if (!postgresCollationPrepared) {
+    await sql`create collation if not exists "pg_c_utf8" (locale = 'C.UTF-8');`.execute(
+      db,
+    )
+    postgresCollationPrepared = true
+  }
+}
+
 export async function initTest(
   ctx: Mocha.Context,
   dialect: BuiltInDialect,
@@ -226,6 +247,7 @@ export async function initTest(
   const db = await connect({ ...config, ...overrides })
 
   await createDatabase(db, dialect)
+  await ensurePostgresCapabilities(db, dialect)
   return { config, db, dialect }
 }
 
@@ -522,11 +544,12 @@ export function orderBy<QB extends SelectQueryBuilder<any, any, any>>(
 ): (qb: QB) => QB {
   return (qb) => {
     if (dialect === 'mssql') {
-      return qb.orderBy(
-        orderBy,
-        sql`${sql.raw(direction ? `${direction} ` : '')}${sql.raw(
-          'offset 0 rows',
-        )}`,
+      return qb.orderBy(orderBy, (ob: any) =>
+        ob.direction(
+          sql`${sql.raw(direction ? `${direction} ` : '')}${sql.raw(
+            'offset 0 rows',
+          )}`.toOperationNode(),
+        ),
       ) as QB
     }
 

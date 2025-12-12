@@ -357,7 +357,8 @@ for (const dialect of DIALECTS) {
         const query = ctx.db
           .selectFrom('person')
           .selectAll()
-          .orderBy('person.first_name', sql`nulls last`)
+          // @ts-ignore
+          .orderBy('person.first_name', (ob) => ob.direction(sql`nulls last`.toOperationNode()))
 
         testSql(query, dialect, {
           postgres: {

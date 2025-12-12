@@ -129,31 +129,10 @@ export interface OrderByInterface<DB, TB extends keyof DB, O> {
 
   // TODO: remove in v0.29
   /**
-   * @deprecated It does ~2-2.6x more compile-time instantiations compared to multiple chained `orderBy(expr, modifiers?)` calls (in `order by` clauses with reasonable item counts), and has broken autocompletion.
-   */
-  orderBy<
-    OE extends
-      | OrderByExpression<DB, TB, O>
-      | DirectedOrderByStringReference<DB, TB, O>,
-  >(
-    exprs: ReadonlyArray<OE>,
-  ): OrderByInterface<DB, TB, O>
-
-  // TODO: remove in v0.29
-  /**
    * @deprecated It does ~2.9x more compile-time instantiations compared to a `orderBy(expr, direction)` call.
    */
   orderBy<OE extends DirectedOrderByStringReference<DB, TB, O>>(
     expr: OE,
-  ): OrderByInterface<DB, TB, O>
-
-  // TODO: remove in v0.29
-  /**
-   * @deprecated Use `orderBy(expr, (ob) => ...)` instead.
-   */
-  orderBy<OE extends OrderByExpression<DB, TB, O>>(
-    expr: OE,
-    modifiers: Expression<any>,
   ): OrderByInterface<DB, TB, O>
 
   /**

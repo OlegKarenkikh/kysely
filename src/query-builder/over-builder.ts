@@ -53,29 +53,10 @@ export class OverBuilder<DB, TB extends keyof DB>
 
   // TODO: remove in v0.29
   /**
-   * @deprecated It does ~2-2.6x more compile-time instantiations compared to multiple chained `orderBy(expr, modifiers?)` calls (in `order by` clauses with reasonable item counts), and has broken autocompletion.
-   */
-  orderBy<
-    OE extends
-      | OrderByExpression<DB, TB, {}>
-      | DirectedOrderByStringReference<DB, TB, {}>,
-  >(exprs: ReadonlyArray<OE>): OverBuilder<DB, TB>
-
-  // TODO: remove in v0.29
-  /**
    * @deprecated It does ~2.9x more compile-time instantiations compared to a `orderBy(expr, direction)` call.
    */
   orderBy<OE extends DirectedOrderByStringReference<DB, TB, {}>>(
     expr: OE,
-  ): OverBuilder<DB, TB>
-
-  // TODO: remove in v0.29
-  /**
-   * @deprecated Use `orderBy(expr, (ob) => ...)` instead.
-   */
-  orderBy<OE extends OrderByExpression<DB, TB, {}>>(
-    expr: OE,
-    modifiers: Expression<any>,
   ): OverBuilder<DB, TB>
 
   orderBy(...args: any[]): any {

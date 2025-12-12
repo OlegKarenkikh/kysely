@@ -1,0 +1,13 @@
+
+
+  mssql: aggregate functions
+TimeoutError: Failed to connect to localhost:21433 - Could not connect (sequence)
+    at /app/node_modules/.pnpm/tarn@3.0.2/node_modules/tarn/dist/PendingOperation.js:14:27
+    at async MssqlDriver.acquireConnection (/app/dist/cjs/dialect/mssql/mssql-driver.js:40:16)
+    at async RuntimeDriver.acquireConnection (/app/dist/cjs/driver/runtime-driver.js:46:28)
+    at async DefaultConnectionProvider.provideConnection (/app/dist/cjs/driver/default-connection-provider.js:10:28)
+    at async DefaultQueryExecutor.executeQuery (/app/dist/cjs/query-executor/query-executor-base.js:36:16)
+    at async connect (/app/test/node/dist/test-setup.js:252:13)
+    at async initTest (/app/test/node/dist/test-setup.js:128:16)
+    at async Context.<anonymous> (/app/test/node/dist/aggregate-function.test.js:10:19)
+Waiting for the database to become available. Did you remember to run `docker compose up`?
