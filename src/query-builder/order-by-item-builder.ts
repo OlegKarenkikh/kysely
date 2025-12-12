@@ -5,11 +5,22 @@ import { RawNode } from '../operation-node/raw-node.js'
 import type { Collation } from '../parser/collate-parser.js'
 import { freeze } from '../util/object-utils.js'
 
+import type { OperationNode } from '../operation-node/operation-node.js'
+
 export class OrderByItemBuilder implements OperationNodeSource {
   readonly #props: OrderByItemBuilderProps
 
   constructor(props: OrderByItemBuilderProps) {
     this.#props = freeze(props)
+  }
+
+  /** @internal */
+  direction(direction: OperationNode): OrderByItemBuilder {
+    return new OrderByItemBuilder({
+      node: OrderByItemNode.cloneWith(this.#props.node, {
+        direction,
+      }),
+    })
   }
 
   /**

@@ -481,16 +481,6 @@ export class UpdateQueryBuilder<DB, UT extends keyof DB, TB extends keyof DB, O>
     expr: OE,
   ): UpdateQueryBuilder<DB, UT, TB, O>
 
-  // TODO: remove in v0.29
-  /**
-   * @description This is only supported by some dialects like MySQL or SQLite with `SQLITE_ENABLE_UPDATE_DELETE_LIMIT`.
-   * @deprecated Use `orderBy(expr, (ob) => ...)` instead.
-   */
-  orderBy<OE extends OrderByExpression<DB, TB, {}>>(
-    expr: OE,
-    modifiers: Expression<any>,
-  ): UpdateQueryBuilder<DB, UT, TB, O>
-
   orderBy(...args: any[]): any {
     return new UpdateQueryBuilder({
       ...this.#props,
