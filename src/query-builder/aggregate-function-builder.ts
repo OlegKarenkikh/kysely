@@ -201,16 +201,6 @@ export class AggregateFunctionBuilder<DB, TB extends keyof DB, O = unknown>
 
   // TODO: remove in v0.29
   /**
-   * @deprecated It does ~2-2.6x more compile-time instantiations compared to multiple chained `withinGroupOrderBy(expr, modifiers?)` calls (in `order by` clauses with reasonable item counts), and has broken autocompletion.
-   */
-  withinGroupOrderBy<
-    OE extends
-      | OrderByExpression<DB, TB, {}>
-      | DirectedOrderByStringReference<DB, TB, {}>,
-  >(exprs: ReadonlyArray<OE>): AggregateFunctionBuilder<DB, TB, O>
-
-  // TODO: remove in v0.29
-  /**
    * @deprecated It does ~2.9x more compile-time instantiations compared to a `withinGroupOrderBy(expr, direction)` call.
    */
   withinGroupOrderBy<OE extends DirectedOrderByStringReference<DB, TB, {}>>(
