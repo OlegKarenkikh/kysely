@@ -61,6 +61,10 @@ export function parseOrderBy(args: any[]): OrderByItemNode[] {
   }
 
   if (args.length === 1) {
+    if (Array.isArray(args[0])) {
+      return args[0].map(parseOrderByItem)
+    }
+
     return [parseOrderByItem(args[0])]
   }
 
